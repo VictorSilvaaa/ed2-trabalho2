@@ -32,9 +32,10 @@ public class ListaEncadeada<T> {
     public void imprimir() {
         No<T> atual = primeiro;
         while (atual != null) {
-            System.out.print(atual.dado + " -> ");
+            System.out.print(" -> "+atual.dado );
             atual = atual.proximo;
         }
-        System.out.println("null");
+        System.out.print(" -> null");
+
     }
 }

@@ -1,20 +1,29 @@
+import java.util.Arrays;
+
 public class Main{
     public static void main(String[] args) {
-        int size =4;
+        int size =10; //tamanho da tabela
         Multimapa<Integer> multimapa = new Multimapa<Integer>(size);
-
         // Inserindo valores no multimapa
-        multimapa.put(0, 1);
-        multimapa.put(0, 2);
-        multimapa.put(0, 3);
-
-        multimapa.put(1, 1);
-        multimapa.put(1, 2);
-
-        multimapa.put(2, 1);
         for (int i=0; i<size; i++){
-            ListaEncadeada<Integer> values = multimapa.findAll(i);
-            values.imprimir();
+            for (int j=0; j<i; j++){
+                multimapa.put(i, j);
+
+            }
+
         }
+        long[] meuVetor = new long[size];
+        for (int i=0; i<size; i++){
+
+            ListaEncadeada<Integer> values = multimapa.findAll(i);
+            System.out.print("tabela["+i+"]");
+            long startTime = System.currentTimeMillis();
+            values.imprimir();
+            long endTime = System.currentTimeMillis();
+            long insertionTime = endTime - startTime;
+            meuVetor[i]=insertionTime;
+            System.out.println();
+        }
+        System.out.println(Arrays.toString(meuVetor));
     }
 }
